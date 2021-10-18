@@ -13,11 +13,26 @@ abstract class AglJs {
     external AfmMain get afmMain;
     external Api get api;
     external HomeScreen get homescreen;
+    external Audiomixer get audiomixer;
 }
 
 @JS()
 abstract class Api {
     external void init();
+}
+
+@JS()
+abstract class Audiomixer {
+    external dynamic list_controls();
+    external dynamic set_volume(String id, double value);
+    external dynamic on_volume_changed(void Function(dynamic data) handler);
+    external dynamic on_controls_changed(void Function(dynamic data) handler);
+}
+
+@JS()
+abstract class AfmMixerControl {
+    external String get control;
+    external double get value;
 }
 
 @JS()
